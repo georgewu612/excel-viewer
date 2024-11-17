@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel 数据展示</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .statistics {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .stat-item {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .stat-item span:last-child {
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 10px;
+        }
+
+        .statistics-container {
+            margin-top: 20px;
+            padding: 15px;
+        }
+        
+        .stats-section {
+            margin-bottom: 30px;
+        }
+        
+        .stats-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        
+        .stats-table th,
+        .stats-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        canvas {
+            height: 300px !important;
+            width: 100% !important;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- 左侧导航菜单 -->
+        <div class="sidebar">
+            <div class="menu" id="sheetMenu">
+                <!-- 菜单项将由 JavaScript 动态生成 -->
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="main-content">
+            <h1>Excel 数据展示</h1>
+            
+            <div class="upload-section">
+                <div class="upload-controls">
+                    <input type="file" id="fileUpload" accept=".xlsx, .xls" />
+                    <button onclick="handleFileUpload()" class="upload-button">上传 Excel</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div id="dataTable">
+                    <!-- 表格内容将由 JavaScript 动态生成 -->
+                </div>
+            </div>
+
+            <!-- 在表格下方添加统计区域 -->
+            <div class="statistics">
+                <div class="stat-item">
+                    <span>本月收款总计：</span>
+                    <span id="monthlyIncome">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>本月杂费总计：</span>
+                    <span id="monthlyExpense">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
